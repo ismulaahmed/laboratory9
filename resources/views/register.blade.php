@@ -8,128 +8,92 @@
         width: 100%;
         max-width: 400px;
         padding: 20px;
+        margin: 0 auto;
     }
 
     .register-card {
-        position: relative;
-        background-color: white;
-        border-radius: 24px;
-        padding: 50px 20px 30px;
-        box-shadow: 
-            0 10px 20px rgba(0, 0, 0, 0.1),
-            0 6px 6px rgba(0, 0, 0, 0.1),
-            0 0 0 10px rgba(255, 255, 255, 0.2);
-        transform: perspective(1000px) rotateX(5deg);
+        background-color: #ffffff;
+        border-radius: 0px;
+        padding: 40px 30px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     }
 
     .user-icon-container {
-        position: absolute;
-        top: -30px;
-        left: 50%;
-        transform: translateX(-50%);
+        text-align: center;
+        margin-bottom: 20px;
     }
 
     .user-icon {
         width: 60px;
         height: 60px;
-        background-color: #26a0b9;
+        background-color: #1e88e5;
         border-radius: 50%;
         display: flex;
         justify-content: center;
         align-items: center;
         color: white;
         font-size: 24px;
-        box-shadow: 
-            0 4px 8px rgba(0, 0, 0, 0.2),
-            0 0 0 5px rgba(255, 255, 255, 0.5);
+        margin: 0 auto;
     }
 
     h2 {
         text-align: center;
-        color: #26a0b9;
-        margin-bottom: 20px;
-        font-size: 24px;
+        color: #000000;
+        font-size: 22px;
+        margin-bottom: 25px;
     }
 
     .error-list {
-        background-color: rgba(255, 0, 0, 0.1);
-        border-radius: 10px;
-        padding: 10px 20px;
+        background-color: #ffebee;
+        border-left: 4px solid #d32f2f;
+        padding: 12px 16px;
         margin-bottom: 20px;
-        list-style-position: inside;
-    }
-
-    .error-list li {
-        color: #d32f2f;
-        margin: 5px 0;
         font-size: 14px;
+        color: #c62828;
+        border-radius: 6px;
     }
 
     .input-group {
-        background-color: #26a0b9;
-        border-radius: 10px;
-        padding: 12px 15px;
-        display: flex;
-        align-items: center;
-        margin-bottom: 15px;
-        box-shadow: 
-            0 4px 6px rgba(0, 0, 0, 0.1),
-            inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        margin-bottom: 16px;
     }
 
-    .input-group i {
-        color: white;
-        margin-right: 10px;
-        font-size: 18px;
+    .input-group label {
+        font-size: 14px;
+        font-weight: 500;
+        display: block;
+        margin-bottom: 6px;
+        color: #333;
     }
 
     .input-group input {
-        background: transparent;
-        border: none;
-        outline: none;
-        color: white;
-        font-size: 16px;
         width: 100%;
+        padding: 10px 14px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 15px;
+        transition: border-color 0.2s;
     }
 
-    .input-group input::placeholder {
-        color: rgba(255, 255, 255, 0.8);
+    .input-group input:focus {
+        border-color: #1e88e5;
+        outline: none;
     }
 
     .register-btn {
-        background-color: white;
-        color: #26a0b9;
-        border: none;
-        padding: 12px 25px;
-        border-radius: 8px;
-        font-weight: bold;
-        font-size: 16px;
-        cursor: pointer;
-        box-shadow: 
-            0 4px 6px rgba(0, 0, 0, 0.1),
-            0 1px 3px rgba(0, 0, 0, 0.1);
-        transition: transform 0.2s, box-shadow 0.2s;
-        display: block;
-        margin: 20px auto 0;
         width: 100%;
+        background-color: #1e88e5;
+        color: white;
+        border: none;
+        padding: 12px 0;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
     }
 
     .register-btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 
-            0 6px 8px rgba(0, 0, 0, 0.15),
-            0 3px 5px rgba(0, 0, 0, 0.1);
-    }
-
-    .register-btn:active {
-        transform: translateY(0);
-        box-shadow: 
-            0 2px 4px rgba(0, 0, 0, 0.1),
-            0 1px 2px rgba(0, 0, 0, 0.1);
-    }
-
-    label {
-        display: none;
+        background-color: #1565c0;
     }
 </style>
 @endsection
@@ -157,21 +121,21 @@
             @csrf
             
             <div class="input-group">
-                <i class="fas fa-user"></i>
-                <input type="text" name="name" value="{{ old('name') }}" placeholder="Name" required>
+                <label for="name">Name</label>
+                <input id="name" type="text" name="name" value="{{ old('name') }}" placeholder="Your name" required>
             </div>
 
             <div class="input-group">
-                <i class="fas fa-envelope"></i>
-                <input type="email" name="email" value="{{ old('email') }}" placeholder="Email" required>
+                <label for="email">Email</label>
+                <input id="email" type="email" name="email" value="{{ old('email') }}" placeholder="you@example.com" required>
             </div>
 
             <div class="input-group">
-                <i class="fas fa-lock"></i>
-                <input type="password" name="password" placeholder="Password" required>
+                <label for="password">Password</label>
+                <input id="password" type="password" name="password" placeholder="Create a password" required>
             </div>
 
-            <button type="submit" class="register-btn">REGISTER</button>
+            <button type="submit" class="register-btn">Register</button>
         </form>
     </div>
 </div>

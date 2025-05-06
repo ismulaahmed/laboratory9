@@ -18,8 +18,8 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background-color: #26a0b9;
-            background-image: linear-gradient(45deg, #26a0b9, #2cb4cd);
+            background-color: #e47878;
+            background-image: linear-gradient(45deg, #ffffff, #ffffff);
         }
     </style>
     @yield('styles')
